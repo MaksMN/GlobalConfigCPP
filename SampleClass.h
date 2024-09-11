@@ -6,7 +6,7 @@ class SampleClass
 {
 private:
     const std::string _class_marker;
-    std::shared_ptr<IConfig> conf = Config::conf;
+    std::shared_ptr<AbstractConfig> conf = Config::i();
 public:
     SampleClass(const std::string& class_marker) :_class_marker(class_marker + ": ") {}
 

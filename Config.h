@@ -1,10 +1,12 @@
 #pragma once
-#include "IConfig.h"
+#include "AbstractConfig.h"
 
 class Config
 {
 private:
-    class _config final :public IConfig {};
+    Config() {}
+    class _config final : public AbstractConfig {};
+    static std::shared_ptr<AbstractConfig> instance;
 public:
-    static const std::shared_ptr<IConfig> conf;
+    static std::shared_ptr<AbstractConfig> i();
 };

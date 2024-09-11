@@ -1,6 +1,8 @@
-#include "IConfig.h"
+#include "AbstractConfig.h"
 
-void IConfig::ini_handle(const char* ini_file_path)
+AbstractConfig::~AbstractConfig() = default;
+
+void AbstractConfig::ini_handle(const char* ini_file_path)
 {
     CSimpleIniA ini;
     ini.SetUnicode();
@@ -14,37 +16,37 @@ void IConfig::ini_handle(const char* ini_file_path)
     ini_int = ini.GetLongValue("GLOBAL", "int_parameter", 100500);
 }
 
-std::string IConfig::getIniString()
+std::string AbstractConfig::getIniString()
 {
     return ini_string;
 }
 
-void IConfig::setIniString(const std::string& new_str)
+void AbstractConfig::setIniString(const std::string& new_str)
 {
     ini_string = new_str;
 }
 
-int IConfig::getIniInt()
+int AbstractConfig::getIniInt()
 {
     return ini_int;
 }
 
-void IConfig::setIniInt(int new_number)
+void AbstractConfig::setIniInt(int new_number)
 {
     ini_int = new_number;
 }
 
-const std::string IConfig::getHelloWorld()
+const std::string AbstractConfig::getHelloWorld()
 {
     return hello_world;
 }
 
-int IConfig::getLocalParameter()
+int AbstractConfig::getLocalParameter()
 {
     return local_parameter;
 }
 
-void IConfig::setLocalParameter(int new_number)
+void AbstractConfig::setLocalParameter(int new_number)
 {
     local_parameter = new_number;
 }

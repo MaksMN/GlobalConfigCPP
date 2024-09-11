@@ -4,7 +4,7 @@
 #include <memory>
 #include "SimpleIni/SimpleIni.h"
 
-class IConfig
+class AbstractConfig
 {
 protected:
     // параметры из ini файла
@@ -27,4 +27,6 @@ public:
     const std::string getHelloWorld();
     int getLocalParameter();
     void setLocalParameter(int new_number);
+
+    virtual ~AbstractConfig() = 0;
 };

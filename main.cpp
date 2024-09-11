@@ -3,8 +3,7 @@
 int main() {
 
     // заполняем структуру данными из ini файла
-    Config::conf->ini_handle("config.sample.ini");
-
+    Config::i()->ini_handle("config.sample.ini");
 
     // Создаем два разных экземпляра класса, который печатает данные из структуры
     SampleClass s1("Class_1");
@@ -15,9 +14,9 @@ int main() {
     s2.print_config();
 
     // меняем значения
-    Config::conf->setIniString("New string");
-    Config::conf->setIniInt(222222);
-    Config::conf->setLocalParameter(3333333);
+    Config::i()->setIniString("New string");
+    Config::i()->setIniInt(222222);
+    Config::i()->setLocalParameter(3333333);
 
     //  и видим, что они изменились в обоих экземплярах
     s1.print_config();

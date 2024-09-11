@@ -1,3 +1,10 @@
 #include "Config.h"
 
-const std::shared_ptr<IConfig> Config::conf = std::make_shared<Config::_config>();
+std::shared_ptr<AbstractConfig> Config::instance = nullptr;
+
+std::shared_ptr<AbstractConfig> Config::i()
+{
+    if (!instance)
+        instance = std::shared_ptr<AbstractConfig>(new Config::_config);
+    return instance;
+}
