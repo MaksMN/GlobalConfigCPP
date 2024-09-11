@@ -1,5 +1,6 @@
 #include <string>
 #include <memory>
+#include <iostream>
 
 #define threadsafe
 
@@ -10,7 +11,11 @@
 class Config
 {
 private:
+    Config() {}
+    Config(const Config&) = delete;
+    Config& operator=(const Config&) = delete;
 
+    static std::shared_ptr<Config> instance;
 
     int int_value = 0;
     std::string string_value;
@@ -20,14 +25,12 @@ private:
 #endif
 
 public:
-    Config() {}
-    static std::shared_ptr<Config> instance;
 
     static std::shared_ptr<Config> i();
 
-    static void load(int int_value_, std::string string_value_);
+    void load(int int_value_, std::string string_value_);
 
-    Config(const Config&) = delete;
-    Config& operator=(const Config&) = delete;
+
+
 
 };
